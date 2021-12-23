@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-untitled" insertBefore="administration" caption="mainMsg://menu_config.application-untitled">
+        <item screen="untitled_PetType.browse" caption="mainMsg://menu_config.untitled_PetType.browse"/>
+        <item screen="untitled_Owner.browse" caption="mainMsg://menu_config.untitled_Owner.browse"/>
+        <item screen="untitled_Pet.browse" caption="mainMsg://menu_config.untitled_Pet.browse"/>
+        <item screen="untitled_Consumable.browse" caption="mainMsg://menu_config.untitled_Consumable.browse"/>
+        <item screen="untitled_Visit.browse" caption="mainMsg://menu_config.untitled_Visit.browse"/>
+        <item screen="untitled_Veterinarian.browse" caption="mainMsg://menu_config.untitled_Veterinarian.browse"/>
+        <item screen="untitled_PetfoodMaintenanceScreen"
+              caption="mainMsg://menu_config.untitled_PetfoodMaintenanceScreen"/>
+    </menu>
+</menu-config>

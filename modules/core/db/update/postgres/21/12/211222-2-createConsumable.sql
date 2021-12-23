@@ -1,0 +1,1 @@
+create unique index IDX_UNTITLED_CONSUMABLE_UK_TITLE on UNTITLED_CONSUMABLE (TITLE) where DELETE_TS is null ;

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://petfoodMaintenanceScreen.caption"
+        messagesPack="com.company.untitled.web.screens.petfood">
+    <data>
+        <collection id="petFoodsDc" class="com.company.untitled.entity.PetFood">
+            <view>
+                <property name="name"/>
+                <property name="price"/>
+            </view>
+            <loader id="petFoodsDl">
+                <query>
+                    <![CDATA[select e from untitled_PetFood e]]>
+                </query>
+            </loader>
+        </collection>
+        <instance id="petFoodDc" class="com.company.untitled.entity.PetFood">
+            <view extends="_local"/>
+            <loader id="petFoodDl"/>
+        </instance>
+    </data>
+    <layout>
+        <split orientation="horizontal" height="100%" width="100%">
+            <table id="petFoodsTable" height="AUTO" width="500px" dataContainer="petFoodsDc">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="editBtn" type="edit"/>
+                    <action id="removeBtn" type="remove"/>
+                </actions>
+                <buttonsPanel alwaysVisible="true">
+                    <button id="petFoodsTableCreateBtn" caption="Create" icon="icons/create.png" stylename="primary"/>
+                    <button id="petFoodsTableEditBtn" caption="Edit" icon="icons/edit.png" enable="false"/>
+                    <button id="petFoodsTableRemoveBtn" caption="Remove" icon="icons/remove.png" enable="false"/>
+                </buttonsPanel>
+                <columns>
+                    <column id="name"/>
+                    <column id="price"/>
+                </columns>
+            </table>
+            <form id="petFoodForm" dataContainer="petFoodDc" editable="false">
+                <column width="350px" childrenCaptionAlignment="RIGHT">
+                    <textField id="nameField" property="name"/>
+                    <textField id="manufactureField" property="manufacture"/>
+                    <textField id="priceField" property="price"/>
+                    <textArea id="descriptionField" property="description" rows="5"/>
+                    <buttonsPanel>
+                        <button id="saveBtn" caption="Save" icon="icons/save.png" enable="false"/>
+                        <button id="cancelBtn" caption="Cancel" icon="icons/cancel.png" enable="false"/>
+                    </buttonsPanel>
+                </column>
+            </form>
+        </split>
+    </layout>
+</window>

@@ -1,0 +1,2 @@
+alter table UNTITLED_VISIT_CONSUMABLE_LINK add constraint FK_VISCON_ON_VISIT foreign key (VISIT_ID) references UNTITLED_VISIT(ID);
+alter table UNTITLED_VISIT_CONSUMABLE_LINK add constraint FK_VISCON_ON_CONSUMABLE foreign key (CONSUMABLE_ID) references UNTITLED_CONSUMABLE(ID);
