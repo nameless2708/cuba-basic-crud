@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-inforpro" insertBefore="administration" caption="mainMsg://menu_config.application-inforpro">
+        <item screen="inforpro_Consumable.browse" caption="mainMsg://menu_config.inforpro_Consumable.browse"/>
+        <item screen="inforpro_Veterinarian.browse" caption="mainMsg://menu_config.inforpro_Veterinarian.browse"/>
+        <item screen="inforpro_Visit.browse" caption="mainMsg://menu_config.inforpro_Visit.browse"/>
+        <item screen="inforpro_Pet.browse" caption="mainMsg://menu_config.inforpro_Pet.browse"/>
+        <item screen="inforpro_PetType.browse" caption="mainMsg://menu_config.inforpro_PetType.browse"/>
+        <item screen="inforpro_Owner.browse" caption="mainMsg://menu_config.inforpro_Owner.browse"/>
+        <item screen="inforpro_PetfoodMaintanceScreen" caption="mainMsg://menu_config.inforpro_PetfoodMaintanceScreen"/>
+    </menu>
+</menu-config>
