@@ -1,4 +1,4 @@
-create table UNTITLED_CONSUMABLE (
+create table INFORPRO_CONSUMABLE (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -9,8 +9,8 @@ create table UNTITLED_CONSUMABLE (
     DELETED_BY varchar(50),
     --
     TITLE varchar(255) not null,
-    DESCTIPTION text,
-    PRICATE decimal(19, 2) not null,
+    DESCRIPTION varchar(255),
+    PRICE decimal(19, 2) not null,
     --
     primary key (ID)
 );

@@ -1,4 +1,4 @@
-create table UNTITLED_VETERINARIAN (
+create table INFORPRO_VETERINARIAN (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,

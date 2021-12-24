@@ -1,23 +1,5 @@
--- begin UNTITLED_PET
-create table UNTITLED_PET (
-    ID uuid,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    NAME varchar(255) not null,
-    TYPE_ID uuid not null,
-    OWNER_ID uuid not null,
-    --
-    primary key (ID)
-)^
--- end UNTITLED_PET
--- begin UNTITLED_PET_TYPE
-create table UNTITLED_PET_TYPE (
+-- begin INFORPRO_PET_TYPE
+create table INFORPRO_PET_TYPE (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -31,27 +13,9 @@ create table UNTITLED_PET_TYPE (
     --
     primary key (ID)
 )^
--- end UNTITLED_PET_TYPE
--- begin UNTITLED_OWNER
-create table UNTITLED_OWNER (
-    ID uuid,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    NAME varchar(255) not null,
-    EMAIL varchar(255),
-    PHONE_NUMBER varchar(255) not null,
-    --
-    primary key (ID)
-)^
--- end UNTITLED_OWNER
--- begin UNTITLED_VISIT
-create table UNTITLED_VISIT (
+-- end INFORPRO_PET_TYPE
+-- begin INFORPRO_VISIT
+create table INFORPRO_VISIT (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -62,35 +26,17 @@ create table UNTITLED_VISIT (
     DELETED_BY varchar(50),
     --
     VISIT_DATE timestamp not null,
-    HOUR_SPENT bigint not null,
-    DESCIPTION text,
+    HOUR_SPEN integer not null,
+    DESCRIPTION text,
     AMOUNT decimal(19, 2) not null,
     PET_ID uuid not null,
-    VATERINARIAN_ID uuid not null,
+    VETERINARIAN_ID uuid not null,
     --
     primary key (ID)
 )^
--- end UNTITLED_VISIT
--- begin UNTITLED_CONSUMABLE
-create table UNTITLED_CONSUMABLE (
-    ID uuid,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    TITLE varchar(255) not null,
-    DESCTIPTION text,
-    PRICATE decimal(19, 2) not null,
-    --
-    primary key (ID)
-)^
--- end UNTITLED_CONSUMABLE
--- begin UNTITLED_VETERINARIAN
-create table UNTITLED_VETERINARIAN (
+-- end INFORPRO_VISIT
+-- begin INFORPRO_VETERINARIAN
+create table INFORPRO_VETERINARIAN (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -105,16 +51,70 @@ create table UNTITLED_VETERINARIAN (
     --
     primary key (ID)
 )^
--- end UNTITLED_VETERINARIAN
--- begin UNTITLED_VISIT_CONSUMABLE_LINK
-create table UNTITLED_VISIT_CONSUMABLE_LINK (
-    VISIT_ID uuid,
-    CONSUMABLE_ID uuid,
-    primary key (VISIT_ID, CONSUMABLE_ID)
+-- end INFORPRO_VETERINARIAN
+-- begin INFORPRO_PET
+create table INFORPRO_PET (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    NAME varchar(255) not null,
+    TYPE_ID uuid not null,
+    OWNER_ID uuid,
+    --
+    primary key (ID)
 )^
--- end UNTITLED_VISIT_CONSUMABLE_LINK
--- begin UNTITLED_PET_FOOD
-create table UNTITLED_PET_FOOD (
+-- end INFORPRO_PET
+-- begin INFORPRO_OWNER
+create table INFORPRO_OWNER (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    NAME varchar(255) not null,
+    EMAIL varchar(255) not null,
+    PHONE_NUMBER varchar(255) not null,
+    --
+    primary key (ID)
+)^
+-- end INFORPRO_OWNER
+-- begin INFORPRO_CONSUMABLE
+create table INFORPRO_CONSUMABLE (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    TITLE varchar(255) not null,
+    DESCRIPTION varchar(255),
+    PRICE decimal(19, 2) not null,
+    --
+    primary key (ID)
+)^
+-- end INFORPRO_CONSUMABLE
+-- begin INFORPRO_VISIT_CONSUMABLE_LINK
+create table INFORPRO_VISIT_CONSUMABLE_LINK (
+    CONSUMABLE_ID uuid,
+    VISIT_ID uuid,
+    primary key (CONSUMABLE_ID, VISIT_ID)
+)^
+-- end INFORPRO_VISIT_CONSUMABLE_LINK
+-- begin INFORPRO_PET_FOOD
+create table INFORPRO_PET_FOOD (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -131,4 +131,4 @@ create table UNTITLED_PET_FOOD (
     --
     primary key (ID)
 )^
--- end UNTITLED_PET_FOOD
+-- end INFORPRO_PET_FOOD

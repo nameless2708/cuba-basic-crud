@@ -1,4 +1,4 @@
-create table UNTITLED_PET_FOOD (
+create table INFORPRO_PET_FOOD (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,

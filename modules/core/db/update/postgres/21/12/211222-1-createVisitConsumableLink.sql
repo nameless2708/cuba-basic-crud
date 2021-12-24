@@ -1,5 +1,5 @@
-create table UNTITLED_VISIT_CONSUMABLE_LINK (
-    VISIT_ID uuid,
+create table INFORPRO_VISIT_CONSUMABLE_LINK (
     CONSUMABLE_ID uuid,
-    primary key (VISIT_ID, CONSUMABLE_ID)
+    VISIT_ID uuid,
+    primary key (CONSUMABLE_ID, VISIT_ID)
 );

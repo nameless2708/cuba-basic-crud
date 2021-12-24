@@ -1,4 +1,4 @@
-create table UNTITLED_VISIT (
+create table INFORPRO_VISIT (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -9,10 +9,10 @@ create table UNTITLED_VISIT (
     DELETED_BY varchar(50),
     --
     VISIT_DATE timestamp not null,
-    DESCIPTION text,
+    DESCRIPTION text,
     AMOUNT decimal(19, 2) not null,
     PET_ID uuid not null,
-    VATERINARIAN_ID uuid not null,
+    VETERINARIAN_ID uuid not null,
     --
     primary key (ID)
 );
