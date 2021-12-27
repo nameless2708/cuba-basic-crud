@@ -8,7 +8,6 @@ import com.haulmont.cuba.gui.screen.*;
 import com.company.infopro.entity.Visit;
 
 import javax.inject.Inject;
-import java.util.Objects;
 
 @UiController("inforpro_Visit.edit")
 @UiDescriptor("visit-edit.xml")
@@ -30,10 +29,6 @@ public class VisitEdit extends StandardEditor<Visit> {
             calculateAmount();
         }
     }
-
-
-    
-    
 
     private void calculateAmount() {
         Visit visit = getEditedEntity();

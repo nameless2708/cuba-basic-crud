@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
         caption="msg://petfoodMaintanceScreen.caption"
         messagesPack="com.company.infopro.web.screens.petfood">
+
     <data>
         <collection id="petFoodsDc" class="com.company.infopro.entity.PetFood">
             <view>
@@ -11,6 +13,16 @@
             <loader id="petFoodsDl">
                 <query>
                     <![CDATA[select e from inforpro_PetFood e]]>
+                    <condition>
+                        <and>
+                            <c:jpql>
+                                <c:where>e.name like :name</c:where>
+                            </c:jpql>
+                            <c:jpql>
+                                <c:where>e.manufacture like :manufacture</c:where>
+                            </c:jpql>
+                        </and>
+                    </condition>
                 </query>
             </loader>
         </collection>
@@ -21,31 +33,57 @@
     </data>
     <layout>
         <split orientation="horizontal" height="100%" width="100%">
-            <table id="petFoodsTable" height="AUTO" width="AUTO" dataContainer="petFoodsDc">
-                <actions>
-                    <action id="create" type="create"/>
-                    <action id="edit" type="edit"/>
-                    <action id="remove" type="remove"/>
-                </actions>
-                <buttonsPanel alwaysVisible="true">
-                    <button id="petFoodsTableCreateBtn" action="petFoodsTable.create"/>
-                    <button id="petFoodsTableEditBtn" action="petFoodsTable.edit"/>
-                    <button id="petFoodsTableRemoveBtn" action="petFoodsTable.remove"/>
-                </buttonsPanel>
-                <columns>
-                    <column id="name"/>
-                    <column id="price"/>
-                </columns>
-            </table>
-            <form id="petFoodForm" dataContainer="petFoodDc">
+            <vbox>
+                <groupBox spacing="true" caption="Search Criteria">
+                    <grid spacing="true">
+                        <columns count="4"/>
+                        <rows>
+                            <row>
+                                <label value="Name"></label>
+                                <textField id="textNameId"></textField>
+                            </row>
+                            <row>
+                                <label value="Manufacture"></label>
+                                <textField id="manufactureNameId"></textField>
+                            </row>
+                            <row>
+                                <buttonsPanel>
+                                    <button id="searchBtn" caption="Search" icon="icons/search.png" stylename="primary"></button>
+                                    <button id="resetBtn" caption="Reset" icon="icons/refresh.png" ></button>
+                                </buttonsPanel>
+                            </row>
+                        </rows>
+                    </grid>
+                </groupBox>
+                <groupBox spacing="true" caption="Search Result">
+                    <table id="petFoodsTable" height="AUTO" width="100%" dataContainer="petFoodsDc">
+                        <actions>
+                            <action id="create" type="create"/>
+                            <action id="edit" type="edit"/>
+                            <action id="remove" type="remove"/>
+                        </actions>
+                        <buttonsPanel alwaysVisible="true">
+                            <button id="petFoodsTableCreateBtn" caption="Create" />
+                            <button id="petFoodsTableEditBtn" caption="Edit" enable="false"/>
+                            <button id="petFoodsTableRemoveBtn" caption="Remove" enable="false"/>
+                        </buttonsPanel>
+                        <columns>
+                            <column id="name"/>
+                            <column id="price"/>
+                        </columns>
+                    </table>
+                </groupBox>
+            </vbox>
+
+            <form id="petFoodForm" dataContainer="petFoodDc" visible="false" >
                 <column width="350px">
                     <textField id="nameField" property="name"/>
                     <textArea id="descriptionField" property="description" rows="5"/>
                     <textField id="manufactureField" property="manufacture"/>
                     <textField id="priceField" property="price"/>
                     <buttonsPanel>
-                        <button id="saveBt" caption="Save" icon="icons/save.png"/>
-                        <button id="cancelBt" caption="Cancel" icon="icons/cancel.png"/>
+                        <button id="saveBt" caption="Create" icon="icons/save.png" enable="false"/>
+                        <button id="cancelBt" caption="Cancel" icon="icons/cancel.png" enable="false"/>
                     </buttonsPanel>
                 </column>
             </form>
